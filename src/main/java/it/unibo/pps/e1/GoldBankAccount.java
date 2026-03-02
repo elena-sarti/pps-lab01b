@@ -1,21 +1,12 @@
 package it.unibo.pps.e1;
 
-public class GoldBankAccount implements BankAccount {
+public class GoldBankAccount extends BankAccountImpl {
 
     private static final int FEE = 0;
     private static final int OVERDRAFT = 500;
-    private final BankAccount base;
 
-    GoldBankAccount(BankAccount bankAccount){
-        this.base = bankAccount;
-    };
-
-    public int getBalance() {
-        return base.getBalance();
-    }
-
-    public void deposit(int amount) {
-        base.deposit(amount);
+    GoldBankAccount(BankAccount bankAccount) {
+        super(bankAccount);
     }
 
     public void withdraw(int amount) {

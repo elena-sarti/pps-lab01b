@@ -1,19 +1,9 @@
 package it.unibo.pps.e1;
 
-public class BronzeBankAccount implements BankAccount {
+public class BronzeBankAccount extends BankAccountImpl {
 
-    private final BankAccount base;
-
-    BronzeBankAccount(BankAccount bankAccount){
-        this.base = bankAccount;
-    };
-
-    public int getBalance() {
-        return base.getBalance();
-    }
-
-    public void deposit(int amount) {
-        base.deposit(amount);
+    BronzeBankAccount(BankAccount bankAccount) {
+        super(bankAccount);
     }
 
     public void withdraw(int amount) {

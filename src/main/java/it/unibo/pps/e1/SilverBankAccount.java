@@ -1,20 +1,11 @@
 package it.unibo.pps.e1;
 
-public class SilverBankAccount implements BankAccount {
+public class SilverBankAccount extends BankAccountImpl {
 
     private static final int FEE = 1;
-    private final BankAccount base;
 
-    SilverBankAccount(BankAccount bankAccount){
-        this.base = bankAccount;
-    };
-
-    public int getBalance() {
-        return base.getBalance();
-    }
-
-    public void deposit(int amount) {
-        base.deposit(amount);
+    SilverBankAccount(BankAccount bankAccount) {
+        super(bankAccount);
     }
 
     public void withdraw(int amount) {
