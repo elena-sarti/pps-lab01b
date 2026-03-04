@@ -33,6 +33,12 @@ public interface GamePosition {
      */
     Pair<Integer, Integer> getPosition2();
 
+    /**
+     *
+     * @param coordinate1
+     * @param coordinate2
+     * @return the distance between coordinate1 and coordinate2
+     */
     public static int getDistance(int coordinate1, int coordinate2){
         return coordinate1 - coordinate2;
     }
