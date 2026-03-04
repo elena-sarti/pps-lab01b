@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GamePositionImpl implements GamePosition {
 
-    public int size;
+    private final int size;
     private final Random random = new Random();
     private final Pair<Integer, Integer> object1;
     private Pair<Integer, Integer> object2;

@@ -15,15 +15,9 @@ public class LogicTest {
 
     @BeforeEach
     public void init(){
-        this.pawn = new Pair<>(3, 4);
+        this.pawn = new Pair<>(3, 2);
         this.knight = new Pair<>(1,3);
         this.logics = new LogicsImpl(new GamePositionImpl(SIZE, this.pawn, this.knight));
-    }
-
-    @Test
-    public void testSetUp(){
-        assertEquals(this.pawn, logics.pawn);
-        assertNotEquals(logics.knight, logics.pawn);
     }
 
     @Test

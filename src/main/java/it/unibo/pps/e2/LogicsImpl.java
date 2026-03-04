@@ -2,8 +2,8 @@ package it.unibo.pps.e2;
 
 public class LogicsImpl implements Logics {
 
-    public final Pair<Integer, Integer> pawn;
-    public Pair<Integer, Integer> knight;
+    private final Pair<Integer, Integer> pawn;
+    private Pair<Integer, Integer> knight;
     GamePosition position;
 
     public LogicsImpl(GamePosition position) {
