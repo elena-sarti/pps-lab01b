@@ -14,7 +14,7 @@ public class GUI extends JFrame {
     private final static int SIZE = 5;
     
     public GUI() {
-        this.logics = new LogicsImpl(new PositionImpl(SIZE, new Pair<Integer, Integer>(new Random().nextInt(SIZE),new Random().nextInt(SIZE)), new Pair<Integer, Integer>(new Random().nextInt(SIZE),new Random().nextInt(SIZE))));
+        this.logics = new LogicsImpl(new GamePositionImpl(SIZE, new Pair<Integer, Integer>(new Random().nextInt(SIZE),new Random().nextInt(SIZE)), new Pair<Integer, Integer>(new Random().nextInt(SIZE),new Random().nextInt(SIZE))));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(100*SIZE, 100*SIZE);
         

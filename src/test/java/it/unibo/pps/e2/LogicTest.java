@@ -3,7 +3,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -18,7 +17,7 @@ public class LogicTest {
     public void init(){
         this.pawn = new Pair<>(3, 4);
         this.knight = new Pair<>(1,3);
-        this.logics = new LogicsImpl(new PositionImpl(SIZE, this.pawn, this.knight));
+        this.logics = new LogicsImpl(new GamePositionImpl(SIZE, this.pawn, this.knight));
     }
 
     @Test

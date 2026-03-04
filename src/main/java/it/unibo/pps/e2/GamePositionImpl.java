@@ -2,14 +2,14 @@ package it.unibo.pps.e2;
 
 import java.util.Random;
 
-public class PositionImpl implements Position {
+public class GamePositionImpl implements GamePosition {
 
     public int size;
     private final Random random = new Random();
-    public final Pair<Integer, Integer> object1;
-    public Pair<Integer, Integer> object2;
+    private final Pair<Integer, Integer> object1;
+    private Pair<Integer, Integer> object2;
 
-    public PositionImpl(int size, Pair<Integer, Integer> object1, Pair<Integer, Integer> object2){
+    public GamePositionImpl(int size, Pair<Integer, Integer> object1, Pair<Integer, Integer> object2){
         this.size = size;
         this.object1 = validatePosition(object1) ? object1 : randomEmptyPosition();
         this.object2 = validatePosition(object2) && !this.object1.equals(object2) ? object2 : randomEmptyPosition();
@@ -32,7 +32,13 @@ public class PositionImpl implements Position {
         return pos.equals(this.object1) ? randomEmptyPosition() : pos;
     }
 
-    public static int getDistance(int coordinate1, int coordinate2){
-        return coordinate1 - coordinate2;
+    @Override
+    public Pair<Integer, Integer> getPosition1(){
+        return this.object1;
+    }
+
+    @Override
+    public Pair<Integer, Integer> getPosition2(){
+        return this.object2;
     }
 }

@@ -1,6 +1,6 @@
 package it.unibo.pps.e2;
 
-public interface Position {
+public interface GamePosition {
 
      /**
      * @param position
@@ -19,4 +19,21 @@ public interface Position {
      * @return a new position with valid coordinates
      */
     Pair<Integer,Integer> randomEmptyPosition();
+
+    /**
+     *
+     *
+     * @return the position of the first Pair<Integer, Integer> object
+     */
+    Pair<Integer, Integer> getPosition1();
+
+    /**
+     *
+     * @return the position of the second Pair<Integer, Integer> object
+     */
+    Pair<Integer, Integer> getPosition2();
+
+    public static int getDistance(int coordinate1, int coordinate2){
+        return coordinate1 - coordinate2;
+    }
 }

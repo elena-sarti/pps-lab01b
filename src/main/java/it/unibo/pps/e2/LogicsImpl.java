@@ -4,12 +4,12 @@ public class LogicsImpl implements Logics {
 
     public final Pair<Integer, Integer> pawn;
     public Pair<Integer, Integer> knight;
-    PositionImpl position;
+    GamePosition position;
 
-    public LogicsImpl(PositionImpl position) {
+    public LogicsImpl(GamePosition position) {
         this.position = position;
-        this.pawn = this.position.object1;
-        this.knight = this.position.object2;
+        this.pawn = this.position.getPosition1();
+        this.knight = this.position.getPosition2();
     }
 
     @Override
@@ -17,8 +17,8 @@ public class LogicsImpl implements Logics {
         if (!this.position.validatePosition(new Pair<>(row, col))) {
             throw new IndexOutOfBoundsException();
         }
-        int orizontalDistance = PositionImpl.getDistance(row, this.knight.getX());
-        int verticalDistance = PositionImpl.getDistance(col, this.knight.getY());
+        int orizontalDistance = GamePosition.getDistance(row, this.knight.getX());
+        int verticalDistance = GamePosition.getDistance(col, this.knight.getY());
         if (isMoveAllowed(orizontalDistance, verticalDistance)) {
             this.knight = new Pair<>(row, col);
             return this.pawn.equals(this.knight);
