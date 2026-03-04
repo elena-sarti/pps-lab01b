@@ -6,13 +6,13 @@ public class GamePositionImpl implements GamePosition {
 
     private final int size;
     private final Random random = new Random();
-    private final Pair<Integer, Integer> object1;
-    private Pair<Integer, Integer> object2;
+    private final Pair<Integer, Integer> pawn;
+    private Pair<Integer, Integer> knight;
 
-    public GamePositionImpl(int size, Pair<Integer, Integer> object1, Pair<Integer, Integer> object2){
+    public GamePositionImpl(int size, Pair<Integer, Integer> pawn, Pair<Integer, Integer> knight){
         this.size = size;
-        this.object1 = validatePosition(object1) ? object1 : randomEmptyPosition();
-        this.object2 = validatePosition(object2) && !this.object1.equals(object2) ? object2 : randomEmptyPosition();
+        this.pawn = validatePosition(pawn) ? pawn : randomEmptyPosition();
+        this.knight = validatePosition(knight) && !this.pawn.equals(knight) ? knight : randomEmptyPosition();
     }
 
     @Override
@@ -28,17 +28,16 @@ public class GamePositionImpl implements GamePosition {
     @Override
     public final Pair<Integer,Integer> randomEmptyPosition(){
         Pair<Integer,Integer> pos = new Pair<>(this.random.nextInt(size),this.random.nextInt(size));
-        // the recursive call below prevents clash with an existing object
-        return pos.equals(this.object1) ? randomEmptyPosition() : pos;
+        return pos.equals(this.pawn) ? randomEmptyPosition() : pos;
     }
 
     @Override
-    public Pair<Integer, Integer> getPosition1(){
-        return this.object1;
+    public Pair<Integer, Integer> getPawn(){
+        return this.pawn;
     }
 
     @Override
-    public Pair<Integer, Integer> getPosition2(){
-        return this.object2;
+    public Pair<Integer, Integer> getKnight(){
+        return this.knight;
     }
 }

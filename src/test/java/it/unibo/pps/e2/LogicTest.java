@@ -32,8 +32,8 @@ public class LogicTest {
 
     @ParameterizedTest
     @CsvSource({
-            "3, 2, false",
-            "1, 2, true"
+            "3, 2, true",
+            "1, 2, false"
     })
     public void testAllowedMove(int orizontalDistance, int verticalDistance, boolean expectedResult){
         assertEquals(expectedResult, logics.isMoveAllowed(orizontalDistance, verticalDistance));

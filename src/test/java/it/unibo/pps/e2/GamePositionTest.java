@@ -10,20 +10,20 @@ public class GamePositionTest {
 
     @Test
     public void testValidPosition() {
-        Pair<Integer, Integer> validObject1 = new Pair<>(3, 2);
-        Pair<Integer, Integer> validObject2 = new Pair<>(1, 1);
-        position = new GamePositionImpl(SIZE, validObject1, validObject2);
-        assertEquals(position.getPosition1(), validObject1);
-        assertEquals(position.getPosition2(), validObject2);
+        Pair<Integer, Integer> validPawn = new Pair<>(3, 2);
+        Pair<Integer, Integer> validKnight = new Pair<>(1, 1);
+        position = new GamePositionImpl(SIZE, validPawn, validKnight);
+        assertEquals(position.getPawn(), validPawn);
+        assertEquals(position.getKnight(), validKnight);
     }
 
     @Test
     public void testOutOfBoundPosition(){
         Pair<Integer, Integer> outOfBoundObject = new Pair<>(5,5);
         position = new GamePositionImpl(SIZE, outOfBoundObject, outOfBoundObject);
-        assertNotEquals(position.getPosition1(), outOfBoundObject);
-        assertNotEquals(position.getPosition2(), outOfBoundObject);
-        assertNotEquals(position.getPosition1(), position.getPosition2());
+        assertNotEquals(position.getPawn(), outOfBoundObject);
+        assertNotEquals(position.getKnight(), outOfBoundObject);
+        assertNotEquals(position.getPawn(), position.getKnight());
     }
 
     @Test

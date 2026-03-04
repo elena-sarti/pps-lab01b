@@ -23,15 +23,15 @@ public interface GamePosition {
     /**
      *
      *
-     * @return the position of the first Pair<Integer, Integer> object
+     * @return the position of the pawn
      */
-    Pair<Integer, Integer> getPosition1();
+    Pair<Integer, Integer> getPawn();
 
     /**
      *
-     * @return the position of the second Pair<Integer, Integer> object
+     * @return the position of the knight
      */
-    Pair<Integer, Integer> getPosition2();
+    Pair<Integer, Integer> getKnight();
 
     /**
      *
