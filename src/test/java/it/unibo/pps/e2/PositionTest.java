@@ -22,9 +22,17 @@ public class PositionTest {
     @Test
     public void testValidPosition() {
         Pair<Integer, Integer> validPosition1 = new Pair<>(3, 2);
-        Pair<Integer, Integer> validPosition2 = new Pair<>(2, 1);
+        Pair<Integer, Integer> validPosition2 = new Pair<>(1, 1);
         position = new PositionImpl(SIZE, validPosition1, validPosition2);
         assertEquals(position.object1, validPosition1);
         assertEquals(position.object2, validPosition2);
+    }
+
+    @Test
+    public void testGetDistance(){
+        int coordinate1 = 2;
+        int coordinate2 = 3;
+        int expecteDistance = -1;
+        assertEquals(expecteDistance, PositionImpl.getDistance(coordinate1, coordinate2));
     }
 }

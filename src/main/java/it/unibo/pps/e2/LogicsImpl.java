@@ -1,41 +1,43 @@
 package it.unibo.pps.e2;
 
-import java.util.*;
-
 public class LogicsImpl implements Logics {
-	
-	public final Pair<Integer,Integer> pawn;
-	public Pair<Integer,Integer> knight;
-	private final int size;
-	 
-    public LogicsImpl(PositionImpl position){
-    	this.size = position.size;
-        this.pawn = position.object1;
-        this.knight = position.object2;
+
+    public final Pair<Integer, Integer> pawn;
+    public Pair<Integer, Integer> knight;
+    PositionImpl position;
+
+    public LogicsImpl(PositionImpl position) {
+        this.position = position;
+        this.pawn = this.position.object1;
+        this.knight = this.position.object2;
     }
-    
-	@Override
-	public boolean hit(int row, int col) {
-		if (row<0 || col<0 || row >= this.size || col >= this.size) {
-			throw new IndexOutOfBoundsException();
-		}
-		// Below a compact way to express allowed moves for the knight
-		int x = row-this.knight.getX();
-		int y = col-this.knight.getY();
-		if (x!=0 && y!=0 && Math.abs(x)+Math.abs(y)==3) {
-			this.knight = new Pair<>(row,col);
-			return this.pawn.equals(this.knight);
-		}
-		return false;
-	}
 
-	@Override
-	public boolean hasKnight(int row, int col) {
-		return this.knight.equals(new Pair<>(row,col));
-	}
+    @Override
+    public boolean hit(int row, int col) {
+        if (!this.position.validatePosition(new Pair<>(row, col))) {
+            throw new IndexOutOfBoundsException();
+        }
+        int orizontalDistance = PositionImpl.getDistance(row, this.knight.getX());
+        int verticalDistance = PositionImpl.getDistance(col, this.knight.getY());
+        if (isMoveAllowed(orizontalDistance, verticalDistance)) {
+            this.knight = new Pair<>(row, col);
+            return this.pawn.equals(this.knight);
+        }
+        return false;
+    }
 
-	@Override
-	public boolean hasPawn(int row, int col) {
-		return this.pawn.equals(new Pair<>(row,col));
-	}
+    @Override
+    public boolean isMoveAllowed(int orizontalDistance, int verticalDistance) {
+        return orizontalDistance != 0 && verticalDistance != 0 && Math.abs(orizontalDistance) + Math.abs(verticalDistance) == 3;
+    }
+
+    @Override
+    public boolean hasKnight(int row, int col) {
+        return this.knight.equals(new Pair<>(row, col));
+    }
+
+    @Override
+    public boolean hasPawn(int row, int col) {
+        return this.pawn.equals(new Pair<>(row, col));
+    }
 }

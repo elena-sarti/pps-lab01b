@@ -10,7 +10,15 @@ public interface Logics {
      * @return whether the pawn has been hit 
      */
     boolean hit(int row, int col);
-    
+
+    /**
+     *
+     * @param orizontalDistance
+     * @param verticalDistance
+     * @return wheter a move with orizontalDistance,verticalDistance is allowed
+     */
+    boolean isMoveAllowed(int orizontalDistance, int verticalDistance);
+
     /**
      * @param row
      * @param col

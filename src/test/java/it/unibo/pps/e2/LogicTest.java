@@ -1,5 +1,8 @@
 package it.unibo.pps.e2;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
+
 import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,6 +35,15 @@ public class LogicTest {
     @Test
     public void testHasKnight(){
         assertTrue(logics.hasKnight(this.knight.getX(), this.knight.getY()));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "3, 2, false",
+            "1, 2, true"
+    })
+    public void testAllowedMove(int orizontalDistance, int verticalDistance, boolean expectedResult){
+        assertEquals(expectedResult, logics.isMoveAllowed(orizontalDistance, verticalDistance));
     }
 
     @Test

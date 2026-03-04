@@ -31,4 +31,8 @@ public class PositionImpl implements Position {
         // the recursive call below prevents clash with an existing object
         return pos.equals(this.object1) ? randomEmptyPosition() : pos;
     }
+
+    public static int getDistance(int coordinate1, int coordinate2){
+        return coordinate1 - coordinate2;
+    }
 }
