@@ -15,5 +15,7 @@ public class SilverBankAccount extends BankAccountImpl {
         base.withdraw(amount + getFee(amount));
     }
 
-    public int getFee(int amount){ return FEE; }
+    public int getFee(int amount){
+        return FEE;
+    }
 }

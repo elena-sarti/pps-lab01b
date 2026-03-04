@@ -1,6 +1,6 @@
 package it.unibo.pps.e1;
 
-public abstract class BankAccountImpl implements BankAccount{
+public abstract class BankAccountImpl implements BankAccount {
 
     protected final BankAccount base;
 
